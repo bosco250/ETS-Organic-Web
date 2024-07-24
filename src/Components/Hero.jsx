@@ -12,7 +12,7 @@ const Hero = () => {
         backgroundPosition: "center",
         minHeight:"300px"
       }}
-      className="md:h-[600px] mt-10 w-full md:mt-[100px] relative pr-6 mr-[-10px]"
+      className="md:h-[600px] mt-10 w-full md:mt-[100px] relative mr-[-10px]"
     >
       <img src={ImagPartener} alt="" className=" w-full md:h-[580px] h-auto" />
       <div
@@ -23,7 +23,7 @@ const Hero = () => {
           <p className=" font-yellow font-[400] text-[35px] leading-10 text-[#68A47F]">
             100% Natural food
           </p>
-          <h1 className=" font-roboto font-[700] md:text-[47px] text-[30px] text-[#274C5B]">
+          <h1 className=" font-roboto font-[700] md:text-[47px] pr-5 text-[30px] text-[#274C5B]">
             Choose the best healthier way
             
             of life
