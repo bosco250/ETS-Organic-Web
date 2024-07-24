@@ -10,12 +10,13 @@ const Hero = () => {
         backgroundImage: `url(${backImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        minHeight:"400px"
       }}
-      className="h-[600px] w-full mt-[100px] relative"
+      className="md:h-[600px] mt-10 w-full md:mt-[100px] relative"
     >
-      <img src={ImagPartener} alt="" className=" w-full h-[580px]" />
+      <img src={ImagPartener} alt="" className=" w-full md:h-[580px] h-auto" />
       <div
-        className="absolute top-[145px] left-[160px] w-[350px]
+        className="absolute top-10 left-10 md:top-[145px] md:left-[160px] w-[350px]
         flex flex-col gap-5"
       >
         <div className="">

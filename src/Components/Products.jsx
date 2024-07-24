@@ -18,7 +18,7 @@ const Products = () => {
         <p className=" font-yellow text-[#7EB693] text-[30px] font-[400] leading-10 ">Category</p>
         <p className="font-roboto text-[40px] font-[700] text-[#274C5B] leading-10">Our Products</p>
       </div>
-      <div className="flex flex-col md:flex-row gap-10 flex-wrap md:ml-10 my-10">
+      <div className="flex flex-col md:flex-row gap-10 flex-wrap md:ml-10 my-10 justify-center items-center">
       <ProductCard image={Calabrese} name="Calabrese Broccoli" category="Vegetable" cost="$13.00" />
       <ProductCard image={Banana} name="Fresh Banana Fruites" category="Fresh" cost="$14.00" />
       <ProductCard image={Nuts} name="White Nuts" category="Millets" cost="$15.00" />

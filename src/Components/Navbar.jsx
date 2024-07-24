@@ -7,8 +7,9 @@ import { IoSearch } from "react-icons/io5";
 const Navbar = () => {
   return (
     <div
-      className=" fixed w-full top-0 left-0 bg-white z-10
-    py-[30px] px-[50px] flex items-center justify-center"
+      className=" md:fixed md:w-full top-0 left-0 bg-white z-10
+    py-[30px] px-[50px] md:flex items-center justify-center
+    hidden"
     >
       <div className=" flex md:flex-row gap-10 justify-between items-center w-full">
         <div className="flex md:flex-row flex-1 justify-between items-center md:gap-[100px] ">
