@@ -12,7 +12,7 @@ const Hero = () => {
         backgroundPosition: "center",
         minHeight:"300px"
       }}
-      className="md:h-[600px] mt-10 w-full md:mt-[100px] relative mr-[-10px]"
+      className="md:h-[600px] mt-10 w-full md:mt-[100px] relative pr-6 mr-[-10px]"
     >
       <img src={ImagPartener} alt="" className=" w-full md:h-[580px] h-auto" />
       <div
