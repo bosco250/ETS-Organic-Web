@@ -31,7 +31,7 @@ const Products = () => {
       </div>
       <div className=" flex justify-center items-center md:my-16">
           <button className="bg-[#274C5B] rounded-[16px] p-4 text-white flex flex-row justify-center items-center gap-3 ">
-            Shop Now
+            Load More
             <TiArrowRight className=" bg-[#335B6B] rounded-full text-white" />
           </button>
         </div>
