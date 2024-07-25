@@ -14,7 +14,7 @@ const Banner = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="w-full h-[200px] rounded-xl relative"
+        className="w-full min-h-[200px] rounded-xl relative"
       >
         <div className=" absolute top-9 left-5 w-[200px]">
           <p className=" font-yellow font[500] text-[35px] leading-10 text-[#FFFFFF]">
