@@ -3,9 +3,9 @@ import { IoIosStar} from 'react-icons/io'
 
 const ProductCard = (props) => {
   return (
-    <div className="flex flex-col w-[250px] bg-[#DEDDDD] rounded-xl">
+    <div className="flex flex-col w-[250px] bg-[#DEDDDD] rounded-xl relative">
       <div className="">
-      <button className="rounded-md p-1 text-white bg-[#274C5B]"> {props.category}</button>
+      <button className="rounded-md p-1 text-white bg-[#274C5B] absolute top-0 left-0"> {props.category}</button>
       </div>
       <div className="">
         <img src={props.image} className=' w-full h-[270px]' />
