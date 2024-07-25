@@ -14,7 +14,7 @@ const ProductCard = (props) => {
         <p className="font-roboto text-[17px] font-[500] text-[#274C5B] bg-[#DEDDDD] ">{props.name} </p>
         <div className="flex justify-between items-center">
           <div className="flex gap-3 mt-2">
-          <p className=" line-through text-gray-400 text-[13px]">$20.00</p>
+          <p className=" line-through text-gray-400 text-[14px]">$20.00</p>
           <p className="font-sans font-[600] text-[14px] text-[#274C5B] ">{props.cost}</p>            
           </div>
           <div className=" flex flex-row gap-1 text-white w-1/3">
