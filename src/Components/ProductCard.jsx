@@ -3,14 +3,14 @@ import { IoIosStar} from 'react-icons/io'
 
 const ProductCard = (props) => {
   return (
-    <div className="flex flex-col w-[250px] bg-[#DEDDDD] rounded-xl relative">
+    <div className="flex flex-col w-[250px]  rounded-xl ">
       <div className="">
-      <button className="rounded-md p-1 text-white bg-[#274C5B] absolute top-0 left-0"> {props.category}</button>
+      <button className="rounded-md p-1 text-white bg-[#274C5B] "> {props.category}</button>
       </div>
       <div className="">
         <img src={props.image} className=' w-full h-[270px]' />
       </div>
-      <div className="flex flex-col px-5 bg-[#DEDDDD] rounded-xl">
+      <div className="flex flex-col px-5 bg-[#DEDDDD] rounded-b-xl">
         <p className="font-roboto text-[17px] font-[500] text-[#274C5B] bg-[#DEDDDD] ">{props.name} </p>
         <div className="flex justify-between items-center">
           <div className="flex gap-3 mt-2">
