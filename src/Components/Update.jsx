@@ -5,6 +5,7 @@ import { db, storage } from '../../firebase/config'
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useParams } from "react-router-dom";
+import { ImSpinner2 } from "react-icons/im";
 // import agriculture from "../assets/agriculture.png";
 
 
@@ -47,15 +48,14 @@ const navigate=useNavigate()
   const updateProduct = async (e) => {
     e.preventDefault();
 
-    if (!type || !des || !price) {
+    if(confirm("Are you going to update the item?...")){if (!type || !des || !price) {
       console.log("Please fill in all required fields.");
       return;
     }
 
     try {
         setLoading(true)
-      let imageURL = existingImage; // Use existing image URL if no new image is provided
-
+      let imageURL = existingImage;
       if (image) {
         const storageRef = ref(storage, `images/${image.name}`);
         await uploadBytes(storageRef, image);
@@ -72,20 +72,18 @@ const navigate=useNavigate()
 navigate("/")
       console.log("Document updated with ID: ", id);
 
-      if (onClose) onClose(); // Close form after update
+      if (onClose) onClose(); 
     } catch (error) {
       console.log("Error updating document: ", error);
+    }}
+    else{
+      setLoading(false)
     }
   };
 
   return (
-    <div className="h-screen flex justify-center items-center"  
-    // style={{
-    //     backgroundImage: `url(${agriculture})`,
-    //     backgroundSize: "cover",
-    //     backgroundPosition: "center",
-    //     backgroundRepeat: "no-repeat",
-    //   }}
+    <div className="h-screen flex justify-center items-center bg-gray-200 text-[#274C5B]"  
+  
     >
       <div className="submit-case">
         <form onSubmit={updateProduct}>
@@ -132,7 +130,9 @@ navigate("/")
               required
             />
           </label>
-          <button type="submit">{loading?"Updating...":"Update"}</button>
+          {loading?<div className=' fixed  top-[16vh] left-[15vw] flex justify-center items-center w-[80%] h-[80%] bg-gray-100 opacity-80 rounded-xl
+              '><ImSpinner2
+               className="animate-spin w-1/2 h-1/2 text-[#274C5B]" /> </div> :( <button type="submit">"Update"</button>)}
         </form>
       </div>
     </div>
