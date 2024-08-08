@@ -39,12 +39,12 @@ const Detail = () => {
   };
 
   return (
-    <div className="h-full w-full flex justify-center items-center">
-      <div className="w-[90%] bg-white p-4 rounded-lg shadow-lg flex flex-col md:w-[80%] md:flex">
-        <div className="w-[100%] h-[60vh] md:w-[100%] md:h-screen">
-          <img src={img} alt={name} className="mb-4 h-full w-full" />
+    <div className="h-full w-full flex justify-center items-center text-[#274C5B] pt-[10vh]">
+      <div className="w-[90%] bg-zinc-200 p-4 rounded-lg  md:flex md:flex-row md:w-[80%] shadow-xl">
+        <div className=" flex justify-end w-full">
+          <img src={img} alt={name} className="mb-4 h-[400px] w-[350px] rounded-xl" />
         </div>
-        <div className="w-[90%] flex flex-col mt-4 justify-center items-center md-[40%]">
+        <div className="w-[100%] flex flex-col mt-4 justify-center items-center md-[40%] ">
           <h2 className="text-xl font-bold mb-4 text-[#274C5B]">
             <span className="text-md text-black">Name:</span>
             {name}
@@ -60,7 +60,7 @@ const Detail = () => {
           <div className="flex gap-10 mt-3">
             <button
               className="py-1 px-4 rounded-md text-white flex items-center justify-center"
-              style={{ backgroundColor: "#7EB693" }}
+              style={{ backgroundColor: "#274C5B",color:"white" }}
               onClick={handleUpdate}
             >
               Update
