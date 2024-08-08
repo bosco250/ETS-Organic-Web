@@ -1,12 +1,12 @@
 import React from 'react'
 import { IoIosStar} from 'react-icons/io'
-
+import { Link } from 'react-router-dom'
 const ProductCard = (props) => {
   return (
     <div className="flex flex-col w-[250px] bg-[#F9F8F8]  rounded-xl ">
       <div className="">
       <button className="rounded-md p-1 text-white bg-[#274C5B] "> {props.category}</button>
-      </div>
+      </div><Link to={`/detail/${props.id}`} state={{ img: props.image, name:props.name, exp:props.category, price:props.cost }}>
       <div className="">
         <img src={props.image} className=' w-full h-[270px]' />
       </div>
@@ -26,7 +26,7 @@ const ProductCard = (props) => {
           </div>
         </div>
       </div>
-
+    </Link>
     </div>
   )
 }

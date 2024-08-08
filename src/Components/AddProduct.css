@@ -1,0 +1,87 @@
+
+
+.submit-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  z-index: 1000; 
+}
+.submit-case{
+z-index: 1;
+background-color: white;
+border: 1px solid hsla(0, 0%, 0%, 0.174);
+height: auto;
+border-radius: 5px;
+box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.174);
+width: 45%;
+}
+.submit-case form{
+  display: flex;
+  flex-direction: column;
+}
+.close{
+  position: relative;
+  right: -400px;
+  top: 14px;
+  font-size: 18px;
+  color: hsla(0, 100%, 50%, 0.589);
+}
+.submit-case p{
+  margin-left: 15%;
+  font-size: 24px;
+}
+.submit-case label{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  margin-left: 15%;  
+  margin-top: 10px;
+
+}
+
+.submit-case label input{
+  width: 80%;
+  height: 40px;
+  border: 1.5px solid hsla(0, 0%, 0%, 0.217);
+  border-radius: 6px;
+}
+
+.submit-case  button{
+  width:68%;
+
+  height: 40px; 
+ 
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  margin-left: 15%;
+  margin-top: 10px;
+  background-color: #7EB693;
+  color: white;
+  margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+  .submit-case{
+      width: 90%;
+  }
+  .submit-case label{
+width: 90%;
+  }
+  .submit-case button{
+      width: 73%;
+          }
+          .close{
+              position: relative;
+              right: -250px;
+              top: 14px;           
+              font-size: 18px;
+              color: hsla(0, 100%, 50%, 0.589);
+          }
+}
