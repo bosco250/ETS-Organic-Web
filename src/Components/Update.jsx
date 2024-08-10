@@ -1,23 +1,19 @@
-// src/Components/add_product/Form.jsx
 import React, { useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom"
-import { db, storage } from '../../firebase/config'
+import { useNavigate } from "react-router-dom";
+import { db, storage } from "../../firebase/config";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useParams } from "react-router-dom";
 import { ImSpinner2 } from "react-icons/im";
-// import agriculture from "../assets/agriculture.png";
-
 
 const Update = ({ onClose }) => {
-  const { id } = useParams(); // Get the product ID from the URL
+  const { id } = useParams(); 
   const [type, setType] = useState("");
   const [des, setDes] = useState("");
   const [image, setImage] = useState(null);
   const [price, setPrice] = useState("");
-  const [existingImage, setExistingImage] = useState(""); // To hold the existing image URL
-  const [loading,setLoading]=useState(false)
-
+  const [existingImage, setExistingImage] = useState(""); 
+  const [loading, setLoading] = useState(false);
 
   // Fetch product data when component mounts
   useEffect(() => {
@@ -30,7 +26,7 @@ const Update = ({ onClose }) => {
           setType(data.type);
           setDes(data.des);
           setPrice(data.price);
-          setExistingImage(data.image); // Set the existing image URL
+          setExistingImage(data.image);
         } else {
           console.log("No such document!");
         }
@@ -43,48 +39,47 @@ const Update = ({ onClose }) => {
   }, [id]);
 
   // Function to handle form submission
-const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const updateProduct = async (e) => {
     e.preventDefault();
 
-    if(confirm("Are you going to update the item?...")){if (!type || !des || !price) {
-      console.log("Please fill in all required fields.");
-      return;
-    }
-
-    try {
-        setLoading(true)
-      let imageURL = existingImage;
-      if (image) {
-        const storageRef = ref(storage, `images/${image.name}`);
-        await uploadBytes(storageRef, image);
-        imageURL = await getDownloadURL(storageRef);
+    if (confirm("Are you going to update the item?...")) {
+      if (!type || !des || !price) {
+        alert("Please fill in all required fields.");
+        return;
       }
 
-      const docRef = doc(db, "products", id);
-      await updateDoc(docRef, {
-        type,
-        des,
-        image: imageURL,
-        price,
-      });
-navigate("/")
-      console.log("Document updated with ID: ", id);
+      try {
+        setLoading(true);
+        let imageURL = existingImage;
+        if (image) {
+          const storageRef = ref(storage, `images/${image.name}`);
+          await uploadBytes(storageRef, image);
+          imageURL = await getDownloadURL(storageRef);
+        }
 
-      if (onClose) onClose(); 
-    } catch (error) {
-      console.log("Error updating document: ", error);
-    }}
-    else{
-      setLoading(false)
+        const docRef = doc(db, "products", id);
+        await updateDoc(docRef, {
+          type,
+          des,
+          image: imageURL,
+          price,
+        });
+        navigate("/");
+        console.log("Document updated with ID: ", id);
+
+        if (onClose) onClose();
+      } catch (error) {
+        console.log("Error updating document: ", error);
+      }
+    } else {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="h-screen flex justify-center items-center bg-gray-200 text-[#274C5B]"  
-  
-    >
+    <div className="h-screen flex justify-center items-center bg-gray-200 text-[#274C5B]">
       <div className="submit-case">
         <form onSubmit={updateProduct}>
           <p className="pt-3">Update Product</p>
@@ -110,13 +105,14 @@ navigate("/")
           </label>
           <label>
             <span>Product Image</span>
-            <input
-              type="file"
-              onChange={(e) => setImage(e.target.files[0])}
-            />
+            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
             {existingImage && (
               <div>
-                <img src={existingImage} alt="Existing Product" style={{ width: '100px', height: '100px' }} />
+                <img
+                  src={existingImage}
+                  alt="Existing Product"
+                  style={{ width: "100px", height: "100px" }}
+                />
               </div>
             )}
           </label>
@@ -130,9 +126,16 @@ navigate("/")
               required
             />
           </label>
-          {loading?<div className=' fixed  top-[16vh] left-[15vw] flex justify-center items-center w-[80%] h-[80%] bg-gray-100 opacity-80 rounded-xl
-              '><ImSpinner2
-               className="animate-spin w-1/2 h-1/2 text-[#274C5B]" /> </div> :( <button type="submit">"Update"</button>)}
+          {loading ? (
+            <div
+              className=" fixed  top-[16vh] left-[15vw] flex justify-center items-center w-[80%] h-[80%] bg-gray-100 opacity-80 rounded-xl
+              "
+            >
+              <ImSpinner2 className="animate-spin w-1/2 h-1/2 text-[#274C5B]" />{" "}
+            </div>
+          ) : (
+            <button type="submit">"Update"</button>
+          )}
         </form>
       </div>
     </div>
