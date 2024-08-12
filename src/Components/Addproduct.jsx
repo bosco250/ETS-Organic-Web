@@ -17,7 +17,7 @@ const Addproduct = ({ onClose }) => {
     e.preventDefault();
 
     if (!type || !des || !price || !image) {
-      console.log("Please fill in all required fields.");
+      alert("Please fill in all required fields.");
       return;
     }
 
